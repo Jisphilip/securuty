@@ -1,0 +1,117 @@
+{% include 'admin_header.html' %}
+
+
+<div id="side-nav" class="sidenav">
+	<a href="javascript:void(0)" id="side-nav-close">&times;</a>
+	
+	<div class="sidenav-content">
+		<p>
+			Kuncen WB1, Wirobrajan 10010, DIY
+		</p>
+		<p>
+			<span class="fs-16 primary-color">(+68) 120034509</span>
+		</p>
+		<p>info@yourdomain.com</p>
+	</div>
+</div><div id="side-search" class="sidenav">
+	<a href="javascript:void(0)" id="side-search-close">&times;</a>
+	<div class="sidenav-content">
+		<form action="">
+
+			<div class="input-group md-form form-sm form-2 pl-0">
+			  <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
+			  <div class="input-group-append">
+			    <button class="input-group-text red lighten-3" id="basic-text1">
+			    	<span class="lnr lnr-magnifier"></span>
+			    </button>
+			  </div>
+			</div>
+
+		</form>
+	</div>
+	
+</div>	<div class="jumbotron d-flex align-items-center">
+  <div class="container text-center">
+    
+
+
+	<center>
+	<h2>View Feedback</h2>
+	<form>
+		{% if data['employee'] %}
+				<table>
+					<tr>
+						<th style="padding-right: 5px">Sl.no</th>
+						<th style="padding-right: 5px">Employee ID</th>
+						<th style="padding-right: 5px">Employee Name</th>
+						<th style="padding-right: 5px">Feedback</th>
+						<th style="padding-right: 5px">Date</th>
+					</tr>
+					{% for row in data['employee'] %}
+						<tr>
+							<td style="padding-right: 5px">{{loop.index}}</td>
+							<td style="padding-right: 5px">{{ row['employee_id'] }}</td>
+							<td style="padding-right: 5px">{{ row['first_name'] }}</td>
+							<td style="padding-right: 5px">{{ row['feedback'] }}</td>
+							<td style="padding-right: 5px">{{ row['fb_date'] }}</td>
+						</tr>
+					{% endfor %}
+				</table>
+			{% endif %}
+	</form>
+	</center>
+
+
+
+
+
+
+
+  </div>
+  <div class="rectangle-1"></div>
+  <div class="rectangle-2"></div>
+  <div class="rectangle-transparent-1"></div>
+  <div class="rectangle-transparent-2"></div>
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+  <div class="circle-3"></div>
+  <div class="triangle triangle-1">
+  	<img src="/static/img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-2">
+  	<img src="/static/img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-3">
+  	<img src="/static/img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-4">
+  	<img src="/static/img/obj_triangle.png" alt="">
+  </div>
+</div>	<!-- Features Section-->
+
+	<!-- <center>
+	<h1>View Feedback</h1>
+	<form>
+		{% if data['employee'] %}
+				<table>
+					<tr>
+						<th style="padding-right: 5px">Sl.no</th>
+						<th style="padding-right: 5px">Employee ID</th>
+						<th style="padding-right: 5px">Employee Name</th>
+						<th style="padding-right: 5px">Feedback</th>
+						<th style="padding-right: 5px">Date</th>
+					</tr>
+					{% for row in data['employee'] %}
+						<tr>
+							<td style="padding-right: 5px">{{loop.index}}</td>
+							<td style="padding-right: 5px">{{ row['employee_id'] }}</td>
+							<td style="padding-right: 5px">{{ row['first_name'] }}</td>
+							<td style="padding-right: 5px">{{ row['feedback'] }}</td>
+							<td style="padding-right: 5px">{{ row['fb_date'] }}</td>
+						</tr>
+					{% endfor %}
+				</table>
+			{% endif %}
+	</form>
+	</center> -->
+{% include 'footer.html' %}

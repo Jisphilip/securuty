@@ -1,0 +1,187 @@
+{% include 'admin_header.html' %}
+
+
+<div id="side-nav" class="sidenav">
+	<a href="javascript:void(0)" id="side-nav-close">&times;</a>
+	
+	<div class="sidenav-content">
+		<p>
+			Kuncen WB1, Wirobrajan 10010, DIY
+		</p>
+		<p>
+			<span class="fs-16 primary-color">(+68) 120034509</span>
+		</p>
+		<p>info@yourdomain.com</p>
+	</div>
+</div><div id="side-search" class="sidenav">
+	<a href="javascript:void(0)" id="side-search-close">&times;</a>
+	<div class="sidenav-content">
+		<form action="">
+
+			<div class="input-group md-form form-sm form-2 pl-0">
+			  <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
+			  <div class="input-group-append">
+			    <button class="input-group-text red lighten-3" id="basic-text1">
+			    	<span class="lnr lnr-magnifier"></span>
+			    </button>
+			  </div>
+			</div>
+
+		</form>
+	</div>
+	
+</div>	<div class="jumbotron d-flex align-items-center">
+  <div class="container text-center">
+    
+
+
+	<form method="post">
+	<center>
+		{% if data['updater'] %}
+		<H1>Update Details Of Employee</H1>
+		<table>
+				<tr>
+					<th>First name</th>
+					<td><input type="text" name="first_name" value="{{data['updater'][0]['first_name']}}"></td>	
+				</tr>
+				<tr>
+					<th>Last name</th>
+					<td><input type="text" name="last_name" value="{{data['updater'][0]['last_name']}}"></td>	
+				</tr>
+				<tr>
+					<th>Phone</th>
+					<td><input type="text" name="phone" value="{{data['updater'][0]['phone']}}"></td>	
+				</tr>
+				<tr>
+					<th>Place</th>
+					<td><input type="text" name="place" value="{{data['updater'][0]['place']}}"></td>	
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><input type="email" name="email" value="{{data['updater'][0]['email']}}"></td>	
+				</tr>
+				<tr>
+					<th>Qualification</th>
+					<td><input type="text" name="qualification" value="{{data['updater'][0]['qualification']}}"></td>	
+				</tr>
+				<tr>
+					<th>Designation</th>
+					<td><input type="text" name="designation" value="{{data['updater'][0]['designation']}}"></td>	
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" name="update" value="UPDATE"></td>	
+				</tr>
+		</table>
+
+	{% else %}
+		<h2>Manage Employee</h2>
+		
+			<table class="table" style="width: 400px">
+				<tr>
+					<th>First name</th>
+					<td><input type="text" name="first_name" class="form-control"></td>	
+				</tr>
+				<tr>
+					<th>Last name</th>
+					<td><input type="text" name="last_name" class="form-control"></td>	
+				</tr>
+				<tr>
+					<th>Phone</th>
+					<td><input type="text" name="phone" class="form-control"></td>	
+				</tr>
+				<tr>
+					<th>Place</th>
+					<td><input type="text" name="place" class="form-control"></td>	
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><input type="email" name="email" class="form-control"></td>	
+				</tr>
+				<tr>
+					<th>Qualification</th>
+					<td><input type="text" name="qualification" class="form-control"></td>	
+				</tr>
+				<tr>
+					<th>Designation</th>
+					<td><input type="text" name="designation" class="form-control"></td>	
+				</tr>
+				<tr>
+					<th>Username</th>
+					<td><input type="text" name="username" class="form-control"></td>	
+				</tr>
+				<tr>
+					<th>Password</th>
+					<td><input type="password" name="password" class="form-control"></td>	
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" name="submit" value="SUBMIT" class="btn btn-primary"></td>	
+				</tr>
+			</table>
+			<br>
+			<br>
+
+			{% if data['employee'] %}
+			<h2>View Employee Details</h2>
+				<table>
+					<tr>
+						<th style="padding-right: 5px">Sl.no</th>
+						<th style="padding-right: 5px">First Name</th>
+						<th style="padding-right: 5px">Last Name</th>
+						<th style="padding-right: 5px">Place</th>
+						<th style="padding-right: 5px">Phone</th>
+						<th style="padding-right: 10px">Email</th>
+						<th style="padding-right: 10px">Qualification</th>
+						<th style="padding-right: 5px">Designation</th>
+					</tr>
+					{% for row in data['employee'] %}
+						<tr>
+							<td style="padding-right: 5px">{{loop.index}}</td>
+							<td style="padding-right: 5px">{{ row['first_name'] }}</td>
+							<td style="padding-right: 5px">{{ row['last_name'] }}</td>
+							<td style="padding-right: 5px">{{ row['place'] }}</td>
+							<td style="padding-right: 5px">{{ row['phone'] }}</td>
+							<td style="padding-right: 10px">{{ row['email'] }}</td>
+							<td style="padding-right: 10px">{{ row['qualification'] }}</td>
+							<td style="padding-right: 5px">{{ row['designation'] }}</td>
+							<td style="padding-right: 5px"><a href="?action=delete&id={{row['login_id']}}">Delete</a></td>
+							<td style="padding-right: 5px"><a href="?action=update&id={{row['login_id']}}">Update</a></td>
+						</tr>
+					{% endfor %}
+				</table>
+			{% endif %}
+{% endif %}
+		</form>
+	</center>
+
+
+
+
+
+
+  </div>
+  <div class="rectangle-1"></div>
+  <div class="rectangle-2"></div>
+  <div class="rectangle-transparent-1"></div>
+  <div class="rectangle-transparent-2"></div>
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+  <div class="circle-3"></div>
+  <div class="triangle triangle-1">
+  	<img src="/static/img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-2">
+  	<img src="/static/img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-3">
+  	<img src="/static/img/obj_triangle.png" alt="">
+  </div>
+  <div class="triangle triangle-4">
+  	<img src="/static/img/obj_triangle.png" alt="">
+  </div>
+</div>	<!-- Features Section-->
+
+
+	
+
+
+{% include 'footer.html' %}
